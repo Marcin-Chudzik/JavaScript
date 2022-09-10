@@ -1,0 +1,12 @@
+.list-wrapper {
+    margin-top: 50px;
+}
+
+.input-danger {
+    border: 2px solid crimson;
+}
+
+.input-info-danger {
+    color: crimson;
+    font-size: 12px;
+}
