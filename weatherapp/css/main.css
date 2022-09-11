@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;600&display=swap");
+@import "variables.css";
+
+body {
+  font-family: 'Baloo Thambi 2', cursive;
+  margin: 0;
+}
+
+h1 {
+  color: ghostwhite;
+}
+
+.weather-info {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-image: var(--url-home);
+  background-size: cover;
+  background-position: center;
+}
+
+.btn {
+  padding: 6px 12px;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  transition: 0.5s all;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.weather-app__search-view, .weather-info__forecast-view {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  width: 40%;
+  height: 40%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.weather-app__search-view h1 {
+  font-size: 34px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.search input {
+  width: 40%;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.weather-info__forecast-view {
+  display: block;
+}

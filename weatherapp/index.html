@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App 0.1</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Weather App 0.1</title>
 </head>
 <body>
-    
+  <main>
+    <section class="weather-info" id="mainContainer">
+      <div id="weatherSearchView" class="weather-app__search-view">
+        <h1>Check weather</h1>
+        <div class="search">
+          <input type="search" id="searchInput" placeholder="ex:. Chicago">
+          <button id="searchButton" class="btn">search</button>
+        </div>
+      </div>
+
+      <div class="weather-info__forecast-view" id="weatherForecastView">
+        <button class="btn" id="returnToSearchBtn">return</button>
+
+        <div class="weather-info__city">
+          <h1 id="weatherCity"></h1>
+          <img src="" id="weatherIcon" alt="weather icon">
+        </div>
+
+        <div class="weather-info__temperatures">
+          <h2 id="weatherCurrentTemp"></h2>
+          <p id="weatherMaxTemp"></p>
+          <p id="weatherMinTemp"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
 </body>
 </html>
