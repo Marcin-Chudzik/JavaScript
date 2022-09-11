@@ -9,17 +9,31 @@
 </head>
 <body>
   <main>
-    <div class="container">
-      <div class="weather-app__search-view">
+    <section class="weather-info" id="mainContainer">
+      <div id="weatherSearchView" class="weather-app__search-view">
         <h1>Check weather</h1>
-        <form>
-          <div class="search-form">
-            <input type="search" placeholder="ex:. Chicago">
-            <button type="submit" class="btn">Search</button>
-          </div>
-        </form>
+        <div class="search">
+          <input type="search" id="searchInput" placeholder="ex:. Chicago">
+          <button id="searchButton" class="btn">search</button>
+        </div>
       </div>
-    </div>
+
+      <div class="weather-info__forecast-view" id="weatherForecastView">
+        <button class="btn" id="returnToSearchBtn">return</button>
+
+        <div class="weather-info__city">
+          <h1 id="weatherCity"></h1>
+          <img src="" id="weatherIcon" alt="weather icon">
+        </div>
+
+        <div class="weather-info__temperatures">
+          <h2 id="weatherCurrentTemp"></h2>
+          <p id="weatherMaxTemp"></p>
+          <p id="weatherMinTemp"></p>
+        </div>
+      </div>
+    </section>
   </main>
+  <script src="js/main.js"></script>
 </body>
 </html>
