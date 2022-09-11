@@ -1,0 +1,9 @@
+:root {
+  --url-home: url('https://images.pexels.com/photos/2961929/pexels-photo-2961929.jpeg');
+  --url-foggy: url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg');
+  --url-sunny: url('https://images.pexels.com/photos/952632/pexels-photo-952632.jpeg');
+  --url-stormy: url('https://images.pexels.com/photos/2226190/pexels-photo-2226190.jpeg');
+  --url-lite-cloudy: url('https://images.pexels.com/photos/1884113/pexels-photo-1884113.jpeg');
+  --url-rainy: url('https://images.pexels.com/photos/125510/pexels-photo-125510.jpeg');
+  --url-high-cloudy: url('https://images.pexels.com/photos/158163/clouds-cloudporn-weather-lookup-158163.jpeg');
+}
