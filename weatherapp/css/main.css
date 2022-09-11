@@ -26,13 +26,17 @@ h1 {
   border: none;
   border-radius: 5px;
   background-color: white;
-  transition: 0.5s all;
   font-family: inherit;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 .btn:hover {
   background-color: black;
   color: white;
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
 
 .weather-app__search-view, .weather-info__forecast-view {
