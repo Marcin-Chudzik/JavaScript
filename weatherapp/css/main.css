@@ -40,7 +40,7 @@ h1 {
 }
 
 .weather-app__search-view, .weather-info__forecast-view {
-  display: none;
+  display: block;
   position: absolute;
   top: 25%;
   left: 30%;
@@ -73,5 +73,5 @@ h1 {
 }
 
 .weather-info__forecast-view {
-  display: block;
+  display: none;
 }
