@@ -1,5 +1,5 @@
 export const getWeatherByCity = city => {
-    // Api key. Normally it's required to create an account on API site, so i published mine own.
+    // API key. Normally it's required to create an account on API site, so i published mine own.
     const apiKey = '7ad87a34dcc3c2be88b7ba506cf382d0';
     // Calling an "OpenWeather - Geocoding" API with city name as param. 
     return fetch(
