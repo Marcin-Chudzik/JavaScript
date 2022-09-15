@@ -11,7 +11,7 @@ export const getWeatherByCity = city => {
         const lat = data[0].lat;
         const lon = data[0].lon;
         // Calling an "OpenWeather - Current weather data" API with saved city's lat and lon.
-        return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
         // Saving city's current weather data.
         ).then(resp => resp.json().then(data => data))
     });

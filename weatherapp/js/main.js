@@ -41,19 +41,37 @@ const onEnterSubmit = event => {
     if (event.key === 'Enter') {
         fadeInOut();
         let query = viewElements.searchInput.value;
-        getWeatherByCity(query);
+        getWeatherByCity(query).then(data => {
+            displayWeatherData(data);
+        });
         viewElements.searchInput.value = "";
-        fadeOutAndSwitch();
     }
 }
 
 const onClickSubmit = () => {
     fadeInOut();
     let query = viewElements.searchInput.value;
-    getWeatherByCity(query);
+    getWeatherByCity(query).then(data => {
+        displayWeatherData(data);
+    });
     viewElements.searchInput.value = "";
-    fadeOutAndSwitch();
 }
+
+const displayWeatherData = data => {
+    fadeOutAndSwitch();
+    // Weather icons
+    viewElements.weatherCity.innerText = data.name;
+    viewElements.weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    // Temperatures
+    const currTemp = data.main.temp;
+    const maxTemp = data.main.temp_max;
+    const minTemp = data.main.temp_min;
+
+    viewElements.weatherCurrentTemp.innerText = `Current temperature: ${currTemp}°C`;
+    viewElements.weatherMaxTemp.innerText = `Maximum temperature: ${maxTemp}°C`;
+    viewElements.weatherMinTemp.innerText = `Minimum temperature: ${minTemp}°C`;
+}
+
 
 const returnToSearch = () => {
     fadeInOut();
@@ -71,7 +89,7 @@ const fadeInOut = () => {
 const switchView = () => {
     if (viewElements.weatherSearchView.style.display !== 'none') {
         viewElements.weatherSearchView.style.display = 'none';
-        viewElements.weatherForecastView.style.display = 'block';
+        viewElements.weatherForecastView.style.display = 'grid';
     } else {
         viewElements.weatherForecastView.style.display = 'none';
         viewElements.weatherSearchView.style.display = 'block';
