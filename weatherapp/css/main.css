@@ -21,7 +21,7 @@ body {
   min-width: 35%;
   position: absolute;
   top: 26%;
-  left: 35%;
+  left: 33%;
   transition-duration: .5s;
   transition-property: opacity;
 }
