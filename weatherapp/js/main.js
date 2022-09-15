@@ -29,8 +29,12 @@ class WeatherApp {
       let query = this.viewElements.searchInput.value;
       getWeatherByCity(query).then(data => {
         this.displayWeatherData(data);
+      }).catch(() => {
+        this.fadeInOut();
+        this.viewElements.searchInput.style.border = '2px solid crimson';
       });
       this.viewElements.searchInput.value = "";
+      this.viewElements.searchInput.style.border = 'none';
     };
   };
 
