@@ -4,9 +4,6 @@
 body {
   font-family: 'Baloo Thambi 2', cursive;
   margin: 0;
-}
-
-h1 {
   color: ghostwhite;
 }
 
@@ -19,7 +16,18 @@ h1 {
   background-position: center;
 }
 
+.container {
+  height: auto;
+  min-width: 35%;
+  position: absolute;
+  top: 26%;
+  left: 35%;
+  transition-duration: .5s;
+  transition-property: opacity;
+}
+
 .btn {
+  width: fit-content;
   padding: 6px 12px;
   font-size: 18px;
   font-weight: 400;
@@ -40,12 +48,8 @@ h1 {
 }
 
 .weather-app__search-view, .weather-info__forecast-view {
-  display: none;
-  position: absolute;
-  top: 25%;
-  left: 30%;
-  width: 40%;
-  height: 40%;
+  display: block;
+  position: relative;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   box-shadow: 5px 5px 10px black;
@@ -61,7 +65,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10%;
+  padding-bottom: 20px;
 }
 
 .search input {
@@ -73,5 +77,38 @@ h1 {
 }
 
 .weather-info__forecast-view {
-  display: block;
+  display: none;
+  padding: 0 7px 7px 7px;
+  grid-template-columns: 50% 50%;
+}
+
+.weather-info__icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.weather-info__icon img {
+  width: 250px;
+}
+
+.weather-info__temperatures {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.weather-info__temperatures h1 {
+  font-size: 35px;
+}
+
+.weather-info__temperatures h2 {
+  font-size: 25px;
+}
+
+.weather-info__temperatures p {
+  font-size: 20px;
 }
