@@ -4,7 +4,7 @@ const viewElements = {};
 
 const getDomElement = id => {
     return document.getElementById(id);
-}
+};
 
 const connectHTMLElements = () => {
     // App containers
@@ -23,18 +23,18 @@ const connectHTMLElements = () => {
     viewElements.weatherMinTemp = getDomElement('weatherMinTemp');
     // Return button
     viewElements.returnToSearchBtn = getDomElement('returnToSearchBtn');
-}
+};
 
 const setupListeners = () => {
     viewElements.searchInput.addEventListener('keydown', onEnterSubmit);
     viewElements.searchButton.addEventListener('click', onClickSubmit);
     viewElements.returnToSearchBtn.addEventListener('click', returnToSearch);
-}
+};
 
 const initializeApp = () => {
     connectHTMLElements();
     setupListeners();
-}
+};
 
 
 const onEnterSubmit = event => {
@@ -45,8 +45,8 @@ const onEnterSubmit = event => {
             displayWeatherData(data);
         });
         viewElements.searchInput.value = "";
-    }
-}
+    };
+};
 
 const onClickSubmit = () => {
     fadeInOut();
@@ -55,7 +55,7 @@ const onClickSubmit = () => {
         displayWeatherData(data);
     });
     viewElements.searchInput.value = "";
-}
+};
 
 const displayWeatherData = data => {
     fadeOutAndSwitch();
@@ -70,21 +70,21 @@ const displayWeatherData = data => {
     viewElements.weatherCurrentTemp.innerText = `Current temperature: ${currTemp}°C`;
     viewElements.weatherMaxTemp.innerText = `Maximum temperature: ${maxTemp}°C`;
     viewElements.weatherMinTemp.innerText = `Minimum temperature: ${minTemp}°C`;
-}
+};
 
 
 const returnToSearch = () => {
     fadeInOut();
     fadeOutAndSwitch();
-}
+};
 
 const fadeInOut = () => {
     if (viewElements.mainContainer.style.opacity === '1' || viewElements.mainContainer.style.opacity === '') {
         viewElements.mainContainer.style.opacity = '0';
     } else {
         viewElements.mainContainer.style.opacity = '1';
-    }
-}
+    };
+};
 
 const switchView = () => {
     if (viewElements.weatherSearchView.style.display !== 'none') {
@@ -93,14 +93,14 @@ const switchView = () => {
     } else {
         viewElements.weatherForecastView.style.display = 'none';
         viewElements.weatherSearchView.style.display = 'block';
-    }
-}
+    };
+};
 
 const fadeOutAndSwitch = () => {
     setTimeout(() => {
         switchView();
         fadeInOut()
     }, 500 );
-}
+};
 
-document.addEventListener('DOMContentLoaded', initializeApp)
+document.addEventListener('DOMContentLoaded', initializeApp);
