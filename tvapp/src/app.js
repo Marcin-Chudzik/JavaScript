@@ -47,7 +47,7 @@ class TvMaze {
     };
   };
 
-  createShowCard = showObj => {
+  createShowCard = show => {
     const divCard = createDOMElement('div', 'card');
     const img = createDOMElement('img', 'card-img-top', null, show.image.medium);
     const divCardBody = createDOMElement('div', 'card-body');
