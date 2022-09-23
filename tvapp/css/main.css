@@ -1,0 +1,18 @@
+.search-bar {
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    width: 23%;
+    height: fit-content;
+    margin: 20px 1%;
+}
+
+.shows-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
