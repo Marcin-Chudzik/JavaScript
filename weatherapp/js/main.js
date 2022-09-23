@@ -4,10 +4,10 @@ import { mapListToDOMElements } from "./DOMActions.js";
 class WeatherApp {
   constructor() {
     this.viewElements = {};
-    this.initalizeApp();
+    this.initializeApp();
   };
 
-  initalizeApp = () => {
+  initializeApp = () => {
     this.connectDOMElements();
     this.setupListeners();
   }
