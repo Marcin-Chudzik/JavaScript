@@ -38,18 +38,39 @@ class TvMaze {
   };
 
   fetchAndDisplayShows = () => {
-    getShowsByKeyWord(this.selectedName).then(shows => this.renderCards(shows));
+    getShowsByKeyWord(this.selectedName).then(shows => this.renderCardsOnList(shows));
   };
 
-  renderCards = shows => {
+  renderCardsOnList = shows => {
+    Array.from(document.querySelectorAll('[data-show-id]')).forEach(btn => {
+      btn.removeEventListener('click', this.openDetailsView);
+    });
     this.viewElements.showsWrapper.innerHTML = "";
 
     for (const { show } of shows) {
-      this.createShowCard(show);
+      const card = this.createShowCard(show);
+      this.viewElements.showsWrapper.appendChild(card);
     };
   };
 
-  createShowCard = show => {
+  openDetailsView = event => {
+    const { showId } = event.target.dataset;
+    getShowById(showId).then(show => {
+      const card = this.createShowCard(show, true);
+      this.viewElements.showPreview.appendChild(card);
+      this.viewElements.showPreview.style.display = 'block';
+    });
+  };
+
+  closeDetailsView = event => {
+    const { showId } = event.target.dataset;
+    const closeBtn = document.querySelector(`[id="showPreview"] [data-show-id="${showId}"]`);
+    closeBtn.removeEventListener('click', this.closeDetailsView);
+    this.viewElements.showPreview.style.display = 'none';
+    this.viewElements.showPreview.innerHTML = '';
+  };
+
+  createShowCard = (show, isDetailed) => {
     const divCard = createDOMElement('div', 'card');
     const divCardBody = createDOMElement('div', 'card-body');
     const h5 = createDOMElement('h5', 'card-title', show.name);
@@ -57,16 +78,35 @@ class TvMaze {
     let img, p;
 
     if (show.summary) {
-      p = createDOMElement('p', 'card-text', String(show.summary).replace( /(<([^>]+)>)/ig, '').slice(0, 200));
+      if (isDetailed) {
+        p = createDOMElement('p', 'card-text', String(show.summary).replace( /(<([^>]+)>)/ig, ''));
+      } else {
+        p = createDOMElement('p', 'card-text', `${String(show.summary).replace( /(<([^>]+)>)/ig, '').slice(0, 200)}...`);
+      };  
     } else {
       p = createDOMElement('p', 'card-text', 'There is no summary for that show yet.');
-    }
+    };
 
     if (show.image) {
-      img = createDOMElement('img', 'card-img-top', null, show.image.medium);
+      if (isDetailed) {
+        img = createDOMElement('div', 'card-preview-bg');
+        console.log(show);
+        img.style.backgroundImage = `url('${show.image.original}')`;
+      } else {
+        img = createDOMElement('img', 'card-img-top', null, show.image.medium);
+      };  
     } else {
       img = createDOMElement('img', 'card-img-top', null, 'https://via.placeholder.com/210x295/');
-    }
+    };
+
+    btn.dataset.showId = show.id;
+
+    if (isDetailed) {
+      btn.addEventListener('click', this.closeDetailsView);
+      btn.innerText = 'Hide details';
+    } else {
+      btn.addEventListener('click', this.openDetailsView);
+    };
 
     divCard.appendChild(img);
     divCard.appendChild(divCardBody);
@@ -74,9 +114,8 @@ class TvMaze {
     divCardBody.appendChild(p);
     divCardBody.appendChild(btn);
 
-    this.viewElements.showsWrapper.appendChild(divCard);
+    return divCard;
   };
-
 };
 
 document.addEventListener('DOMContentLoaded', new TvMaze());

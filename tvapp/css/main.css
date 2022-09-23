@@ -11,6 +11,28 @@
     margin: 20px 1%;
 }
 
+.card-preview-bg {
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.show-preview {
+    display: none;
+    position: fixed;
+    width: 50%;
+    z-index: 2;
+    background-color: ghostwhite;
+    box-shadow: 7px 10px 20px black;
+}
+
+.show-preview .card {
+    width: 95%;
+    height: 700px;
+    margin: 10px auto;
+    overflow-y: auto;
+}
+
 .shows-wrapper {
     display: flex;
     flex-direction: row;
