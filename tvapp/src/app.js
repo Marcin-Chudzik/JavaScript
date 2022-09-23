@@ -42,6 +42,8 @@ class TvMaze {
   };
 
   renderCards = shows => {
+    this.viewElements.showsWrapper.innerHTML = "";
+
     for (const { show } of shows) {
       this.createShowCard(show);
     };
@@ -49,11 +51,22 @@ class TvMaze {
 
   createShowCard = show => {
     const divCard = createDOMElement('div', 'card');
-    const img = createDOMElement('img', 'card-img-top', null, show.image.medium);
     const divCardBody = createDOMElement('div', 'card-body');
     const h5 = createDOMElement('h5', 'card-title', show.name);
-    const p = createDOMElement('p', 'card-text', String(show.summary).replace( /(<([^>]+)>)/ig, ''));
     const btn = createDOMElement('a', 'btn btn-primary', 'Show details');
+    let img, p;
+
+    if (show.summary) {
+      p = createDOMElement('p', 'card-text', String(show.summary).replace( /(<([^>]+)>)/ig, '').slice(0, 200));
+    } else {
+      p = createDOMElement('p', 'card-text', 'There is no summary for that show yet.');
+    }
+
+    if (show.image) {
+      img = createDOMElement('img', 'card-img-top', null, show.image.medium);
+    } else {
+      img = createDOMElement('img', 'card-img-top', null, 'https://via.placeholder.com/210x295/');
+    }
 
     divCard.appendChild(img);
     divCard.appendChild(divCardBody);
